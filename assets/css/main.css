@@ -2182,11 +2182,3 @@ input, select, textarea {
 				padding-left: 0.5em;
 				margin-left: 0.5em;
 			}
-
-			body {
-				background: #f4f4f4;
-				font-family: Arial, sans-serif;
-			  }
-			  #work section .row .col-12:nth-child(n+5) {
-				display: none !important;
-			}
