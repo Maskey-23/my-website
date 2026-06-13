@@ -1,0 +1,214 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Sakar Shrestha</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<div id="wrapper">
+
+			<!-- Nav -->
+			<nav id="nav">
+				<a href="#" class="icon solid fa-home"><span>Home</span></a>
+				<a href="#work" class="icon solid fa-folder"><span>Work</span></a>
+				<a href="#contact" class="icon solid fa-envelope"><span>Contact</span></a>
+				<a href="https://www.linkedin.com/in/sakar-maskey-4491a12b0/" class="icon brands fa-linkedin"><span>linkedin</span></a>
+				<a href="https://wa.me/9779749223746" class="icon brands fa-whatsapp" target="_blank"><span>WhatsApp</span></a>
+			</nav>
+
+			<!-- Main -->
+			<div id="main">
+
+				<!-- Home -->
+				<article id="home" class="panel intro">
+					<header>
+						<h1>Hi, I'm<br> Sakar Shrestha</h1>
+						<p>Graphic Designer</p>
+					</header>
+					<a href="#work" class="jumplink pic">
+						<span class="arrow icon solid fa-chevron-right"><span>See my work</span></span>
+						<img src="images/me.jpg" alt="Sakar Shrestha" />
+					</a>
+				</article>
+
+				<!-- Work -->
+				<article id="work" class="panel">
+					<header>
+						<h2>Work</h2>
+					</header>
+					<p>My design works includes branding and packaging, social media and printed media, and designs for preference of various products or ideas. Each design project that I undertake builds a strong identifiable image for a brand.</p>
+
+					<section>
+						<div class="work-grid">
+
+							<!-- Grape -->
+							<div class="work-card" onclick="openLightboxFromGrid('grape-images')">
+								<div class="work-card-media">
+									<img src="images/grape-01.png" alt="Grape">
+									<div class="work-card-overlay">
+										<p>Grape — chip company. Packaging, branding, truck wrap, lifestyle.</p>
+									</div>
+								</div>
+								<div class="image-grid" id="grape-images">
+									<img src="images/grape-01.png">
+									<img src="images/grape-02.png">
+									<img src="images/grape-03.png">
+									<img src="images/grape-04.png">
+									<img src="images/grape-05.png">
+									<img src="images/grape-06.png">
+									<img src="images/grape-07.png">
+									<img src="images/grape-08.png">
+									<img src="images/grape-09.png">
+								</div>
+							</div>
+
+							<!-- Client 2 -->
+							<div class="work-card" onclick="openLightboxFromGrid('client2-images')">
+								<div class="work-card-media">
+									<img src="images/client2-01.jpg" alt="Client 2">
+									<div class="work-card-overlay">
+										<p>Client 2 — project description goes here.</p>
+									</div>
+								</div>
+								<div class="image-grid" id="client2-images">
+									<img src="images/client2-01.jpg">
+								</div>
+							</div>
+
+							<!-- Client 3 -->
+							<div class="work-card" onclick="openLightboxFromGrid('client3-images')">
+								<div class="work-card-media">
+									<img src="images/client3-01.jpg" alt="Client 3">
+									<div class="work-card-overlay">
+										<p>Client 3 — project description goes here.</p>
+									</div>
+								</div>
+								<div class="image-grid" id="client3-images">
+									<img src="images/client3-01.jpg">
+								</div>
+							</div>
+
+							<!-- Client 4 -->
+							<div class="work-card" onclick="openLightboxFromGrid('client4-images')">
+								<div class="work-card-media">
+									<img src="images/client4-01.jpg" alt="Client 4">
+									<div class="work-card-overlay">
+										<p>Client 4 — project description goes here.</p>
+									</div>
+								</div>
+								<div class="image-grid" id="client4-images">
+									<img src="images/client4-01.jpg">
+								</div>
+							</div>
+
+						</div>
+					</section>
+				</article>
+
+				<!-- Contact -->
+				<article id="contact" class="panel">
+					<header>
+						<h2>Contact Me</h2>
+					</header>
+					<form id="contact-form">
+						<label>
+							Your email:
+							<input type="email" name="email" required>
+						</label>
+						<label>
+							Your message:
+							<textarea name="message" required></textarea>
+						</label>
+						<button type="submit">Send</button>
+						<p id="form-status"></p>
+					</form>
+
+					<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+					<script>
+						emailjs.init("WLgyPxreqZd4kh9q6");
+
+						document.getElementById('contact-form').addEventListener('submit', function(e) {
+							e.preventDefault();
+							var status = document.getElementById('form-status');
+							var button = this.querySelector('button[type="submit"]');
+							button.disabled = true;
+							status.textContent = 'Sending...';
+
+							emailjs.sendForm('service_ryn36xh', 'template_ulqxlku', this)
+								.then(function() {
+									status.textContent = 'Message sent! Thank you.';
+									document.getElementById('contact-form').reset();
+									button.disabled = false;
+								}, function(error) {
+									status.textContent = 'Failed to send. Please try again.';
+									button.disabled = false;
+								});
+						});
+					</script>
+				</article>
+
+			</div>
+
+			<!-- Footer -->
+			<div id="footer">
+				<ul class="copyright">
+					<li>&copy; Sakar Maskey</li>
+				</ul>
+			</div>
+
+		</div>
+
+		<!-- Lightbox -->
+		<div id="lightbox">
+			<span id="lightbox-close" onclick="closeLightbox()">&#10005;</span>
+			<div id="lightbox-feed"></div>
+		</div>
+
+		<!-- Scripts -->
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+
+		<script>
+			function openLightboxFromGrid(gridId) {
+				var grid = document.getElementById(gridId);
+				var images = Array.from(grid.querySelectorAll('img'));
+				var feed = document.getElementById('lightbox-feed');
+				feed.innerHTML = '';
+				images.forEach(function(img) {
+					var slide = document.createElement('div');
+					slide.className = 'lightbox-slide';
+					var cloned = document.createElement('img');
+					cloned.src = img.src;
+					cloned.alt = img.alt || '';
+					slide.appendChild(cloned);
+					feed.appendChild(slide);
+				});
+				document.getElementById('lightbox').classList.add('open');
+				document.body.style.overflow = 'hidden';
+				feed.scrollTop = 0;
+			}
+
+			function closeLightbox() {
+				var lightbox = document.getElementById('lightbox');
+				lightbox.classList.remove('open');
+				document.getElementById('lightbox-feed').innerHTML = '';
+				document.body.style.overflow = '';
+			}
+
+			document.addEventListener('keydown', function(event) {
+				var lightbox = document.getElementById('lightbox');
+				if (lightbox.classList.contains('open')) {
+					if (event.key === 'Escape') closeLightbox();
+				}
+			});
+		</script>
+
+	</body>
+</html>
